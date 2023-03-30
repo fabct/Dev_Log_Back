@@ -75,7 +75,7 @@ const api = {
         });
 
         // --------------- DEBUG ------------------
-        app.use(express.static("public"));
+        app.use(express.static("../Test/public"));
         // --------------- DEBUG ------------------
     }
 };

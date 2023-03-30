@@ -59,6 +59,7 @@ const data_public = {
                users = read_database_file();
           } catch{
                console.error("Ne peut pas lire depuis la base de donnée");
+               console.log("Ne peut pas lire depuis la base de donnée");
                return false;
           }
 
@@ -74,6 +75,7 @@ const data_public = {
                write_database_file(users);
            } catch {
                console.error("Ne peut pas écrire dans la base de donnée");
+               console.log("Ne peut pas écrire dans la base de donnée");
                return false;
            }
            
@@ -140,6 +142,11 @@ edit_user: user => {
           users = read_database_file();
      } catch{
           console.error("Ne peut pas lire depuis la base de donnée");
+          return false;
+     }
+
+     //Regarde si l'id est dans users
+     if(users.map(user => user.id).indexOf(id) == -1){
           return false;
      }
 

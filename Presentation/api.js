@@ -3,7 +3,8 @@
  */
 
 const express = require("express");
-const business = require("../business/business");
+const cors = require("cors")
+const business = require("../Business/business");
 
 // ----- Initialisation de l'application -----
 
@@ -20,6 +21,11 @@ const api = {
     start: port => {
         // Enables JSON requests
         app.use(express.json());
+
+        // Cors
+        app.use(cors({
+            origin: "*"
+        }));
 
         // GET request - See users
         // Return a JSON containing the users
